@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="taskbar">
-            <img src="image/icons8-ubuntu-48.png" alt="start button">
+            <img src="image/icons8-ubuntu-48.png" alt="start button" class="start-button">
             <img src="image/icons8-file-explorer-48.png" alt="file explorer" id="img1">
             <img src="image/settings.png" alt="setting" id="img2">
             <img src="image/icons8-music-60.png" alt="music" id="img3">
@@ -23,14 +23,49 @@
                 </div>
             </div>
         </div>
-        <div class="start-menu" id="start-menu">
+        <div class="start-menu" id="start-menu" hidden>
             <div class="menus">
                 <ul>
-                <li>Music</li>
-                <li>Terminal</li>
-                <li>Settings</li>
-                <li>File Manager</li>
+                <div class="menu1">
+                    <li><img src="image/icons8-music-60.png"> Music </li>
+                </div>
+                <div class="menu2">
+                    <li><img src="image/wifi.png"> Terminal</li>
+                </div>
+                <div class="menu3">
+                    <li><img src="image/settings.png" alt="Setting"> Settings</li>
+                </div>
+                <div class="menu4">
+                    <li><img src="image/icons8-file-explorer-48.png" alt="File Explorer"> File Manager</li>
+                </div>
+                <div class="menu5">
+                    <li><img src="image/sticky-note.png" alt="sticky note"> Sticky Note</li>
+                </div>
             </ul>
+            </div>
+
+        </div>
+        <div class="windows_manager_sticknotes" hidden>
+            <div class="operation_manager">
+                <div class="program_name">Sticky Notes</div>
+                <div class="minimize">−</div>
+                <div class="maximize">□</div>
+                <div class="close">×</div>
+            </div>
+
+            <div class="main_sticky_note" contenteditable="true">
+            </div>
+        </div>
+        
+        <div class="windows_manager_settings" hidden>
+            <div class="operation_manager">
+                <div class="program_name_settings">Settings</div>
+                <div class="minimize">−</div>
+                <div class="maximize"> □ </div>
+                <div class="close">×</div>
+            </div>
+            <div class="main_settings">
+
             </div>
 
         </div>
