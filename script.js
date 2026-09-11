@@ -63,6 +63,7 @@ function dragWindow(windowElement, dragHandle) {
 
         offsetX = event.clientX - windowElement.offsetLeft;
         offsetY = event.clientY - windowElement.offsetTop;
+        dragHandle.style.cursor = "grabbing";
 
     });
 

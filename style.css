@@ -21,6 +21,8 @@ body {
 .taskbar img{
     height: 43px;
     width: 43px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 .actionbar{
     margin-left: auto;
@@ -28,16 +30,23 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
+
 #clock {
     font-size: 20px; 
     font-family: monospace;
     font-weight: bold;
     color: white;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 #wifi img{
     height: 30px;
     width: 30px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 #poweroff {
@@ -62,6 +71,8 @@ body {
 .menu1,.menu2, .menu3, .menu4,.menu5{
     width: 220px;
     height: 30px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 .menu1:hover, 
 .menu2:hover,
@@ -77,6 +88,8 @@ body {
     vertical-align: bottom;
     border-radius: 3px;
     margin-left: 4px;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .menus ul {
@@ -96,7 +109,6 @@ body {
     top: 20px;
     left:20px;
     position: absolute;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,6 +125,9 @@ body {
     margin-right: 10px;
     margin-bottom: 5px;
     gap: 5px;
+    user-select: none;
+    -webkit-user-drag: none;
+    cursor: grab;
 }
 
 .main_sticky_note {
@@ -126,6 +141,8 @@ body {
 .program_name {
     margin-right: 20px;
     font-family: cursive;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .minimize{
@@ -160,15 +177,7 @@ body {
     border-radius: 10px;
 }
 
-.operation_manager_settings{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    align-self: flex-end;
-    margin-right: 10px;
-    gap: 5px;
-}
+
 
 .main_settings{
     height: 750px;
@@ -185,8 +194,9 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     vertical-align: bottom;
+    user-select: none;
+    -webkit-user-drag: none;
 }
-
 
 [hidden] {
     display: none !important;
