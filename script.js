@@ -41,14 +41,7 @@ start_menu.addEventListener("mouseenter", () => {
 });
 
 
-// Sticky Notes
-const stickyWindow = document.querySelector(".windows_manager_sticknotes");
-const stickynote = document.querySelector(".menu5");
 
-
-// Original window ko initially hidden rakho
-stickyWindow.hidden = true;
-stickyWindow.style.display = "none";
 
 
 // Function to make a window draggable
@@ -106,17 +99,81 @@ function makewindowcopies(window_manager_name) {
     });
 }
 
-const settinghandle = document.querySelector(".operation_manager_settings")
+
+// Sticky Notes
+const stickyWindow = document.querySelector(".windows_manager_sticknotes");
+const stickynote = document.querySelector(".menu5");
+
+
+// Original window ko initially hidden rakho
+stickyWindow.hidden = true;
+stickyWindow.style.display = "none";
+
+stickynote.addEventListener("click", function () {
+    makewindowcopies(stickyWindow);
+});
+
+// Settings
 const settingwindow = document.querySelector(".windows_manager_settings")
 const settings = document.querySelector(".menu3")
 
 settingwindow.hidden = true;
 settingwindow.style.display = "none";
 
-stickynote.addEventListener("click", function () {
-    makewindowcopies(stickyWindow);
-});
-
 settings.addEventListener("click",function(){
     makewindowcopies(settingwindow);
 });
+
+
+
+// Music
+const musicwindow = document.querySelector(".windows_manager_music")
+const music = document.querySelector(".menu1")
+
+musicwindow.hidden = true;
+musicwindow.style.display = "none";
+
+music.addEventListener("click", () => {
+    musicwindow.hidden = false;
+    musicwindow.style.display = "flex";
+});
+
+dragWindow(musicwindow, musicwindow.querySelector(".operation_manager"));
+
+
+// Music controller system
+
+const fileinput = document.getElementById("file");
+const playButton = document.getElementById("uploadbtn");
+const pauseButton = document.getElementById("pausebtn");
+const incspeed = document.getElementById("increasespeed");
+const catlistens = musicwindow.querySelector("#cat-listening")
+
+const audio = new Audio();
+playButton.addEventListener("click",(event) => {
+    event.preventDefault(); //stop default behavior
+    const file = fileinput.files[0]; // file 
+    if (!file) return;
+    audio.src = URL.createObjectURL(file); //file link
+    audio.play(); //playing audio
+    catlistens.src = "image/Cat listening GIF.gif";
+});
+
+pauseButton.addEventListener("click",(event) => {
+    event.preventDefault();
+    audio.pause(); // pausing audio
+    catlistens.src = "image/angry cat GIF.gif";
+});
+
+incspeed.addEventListener("click",(event) => {
+    event.preventDefault();
+    audio.playbackRate += 0.25; // increasing speed 
+});
+
+
+// Playlist system
+// I will show music here, dynamically.....
+
+const playlist = music.querySelector(".music_list");
+
+
