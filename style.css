@@ -68,7 +68,7 @@ body {
     border-radius: 10px;
     z-index: +1;
 }
-.menu1,.menu2, .menu3, .menu4,.menu5{
+.menu1,.menu2, .menu3, .menu4,.menu5, .menu6{
     width: 220px;
     height: 30px;
     user-select: none;
@@ -78,8 +78,9 @@ body {
 .menu2:hover,
 .menu3:hover,
 .menu4:hover,
-.menu5:hover{
-    background-color: rgb(50, 153, 221);
+.menu5:hover,
+.menu6:hover{
+    background-color : rgb(50, 153, 221);
 }
 
 .menus img{
@@ -103,9 +104,9 @@ body {
 }
 
 .windows_manager_sticknotes {
-    height: 300px;
-    width: 200px;
-    background-color: lightblue;
+    height: 350px;
+    width: 250px;
+    background-color:blueviolet;
     top: 20px;
     left:20px;
     position: absolute;
@@ -133,14 +134,15 @@ body {
 
 .main_sticky_note {
     box-sizing: border-box;
-    height: 250px;
-    width: 150px;
+    height: 300px;
+    width: 200px;
     background-color: white;
     padding: 20px;
+    border-radius: 5px;
 }
 
 .program_name {
-    margin-right: 20px;
+    margin-right: 60px;
     font-family: cursive;
     user-select: none;
     -webkit-user-drag: none;
@@ -243,6 +245,7 @@ body {
 }
 .music_list {
     margin-top: auto;
+    cursor: pointer;
 }
 .music_controller {
     margin-top: auto;
@@ -264,7 +267,88 @@ body {
 .file-picker input[type="file"] {
     width: 85px;
 }
+.music_list {
+    margin-top: 10px;
+    border: 1px dashed black;
+}
 
+#music_list {
+    display: block;
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+    background-color: white;
+    border: 2px solid red;
+    box-sizing: border-box;
+    overflow-y: auto;
+    user-select: none;
+}
 [hidden] {
     display: none !important;
+}
+
+
+.my-project {
+    height: 500px;
+    width: 500px;
+    background-color: blueviolet;
+
+    position: absolute;
+    top: 80px;
+    left: 200px;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.my-project .operation_manager {
+    align-self: flex-end;
+}
+
+.my-project .operation_manager .program_name_projects{
+    margin-right: 325px;
+    font-weight: bolder;
+    font-style: normal;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.my-project .main-window{
+    background-color: white;
+    height: 400px;
+    width: 425px;
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 3px;
+    overflow-y: auto;
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 100px;
+    gap: 10px;
+}
+.my-project .main-window span {
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: rgb(247, 247, 167);
+    box-shadow: 2px lightgrey;
+    padding: 5px;
+}
+
+.my-project .main-window span:last-child{
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.my-project .main-window span:hover{
+    transform: scale(1.06);
+}
+
+.my-project .main-window span a{
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: yellow;
+    width: 100px;
+    border-radius: 2px;
 }

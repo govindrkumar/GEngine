@@ -170,10 +170,127 @@ incspeed.addEventListener("click",(event) => {
     audio.playbackRate += 0.25; // increasing speed 
 });
 
+// first music working system
+const closebtn = musicwindow.querySelector(".close");
+const minibtn = musicwindow.querySelector(".minimize");
+const maxibtn = musicwindow.querySelector(".maximize");
 
+closebtn.addEventListener("click",() => {
+    musicwindow.hidden = true;
+    musicwindow.style.display = "none";
+});
 // Playlist system
-// I will show music here, dynamically.....
 
-const playlist = music.querySelector(".music_list");
+const playlist = document.querySelector(".music_list");
+const playlistTitle = document.getElementById("playlist-title");
+const musiclist = document.getElementById("music_list");
+const mzpgname = document.querySelector(".program_name_music");
+const audiop = document.querySelector(".audio-player");
+
+let songs = [];
+let currentSong = 0;
+
+musiclist.hidden = true;
 
 
+// =========================
+// ADD MUSIC
+// =========================
+
+fileinput.addEventListener("change", () => {
+
+    const selectedFiles = Array.from(fileinput.files);
+
+    selectedFiles.forEach(file => {
+
+        songs.push(file);
+        const songElement = document.createElement("div");
+        songElement.textContent = file.name;
+        songElement.classList.add("song");
+        musiclist.appendChild(songElement);
+
+        // Song click
+        songElement.addEventListener("click", () => {
+
+            currentSong = songs.indexOf(file);
+            audio.src = URL.createObjectURL(file);
+
+            audio.play();
+
+            catlistens.src = "image/Cat listening GIF.gif";
+
+        });
+
+    });
+    musiclist.hidden = false;
+});
+
+
+// PLAYLIST OPEN/CLOSE
+playlist.addEventListener("click", () => {
+    playlistTitle.textContent = "🔽 Playlist";
+    musiclist.hidden = false;
+    musicwindow.style.height = "450px";
+    musicwindow.style.width = "450px";
+    mzpgname.style["margin-right"] = "300px";
+    audiop.style.height = "400px";
+    audiop.style.width = "400px";
+
+});
+
+
+playlist.addEventListener("dblclick", () => {
+    playlistTitle.textContent = "▶️ Playlist";
+    musiclist.hidden = true;
+    musicwindow.style.height = "400px";
+    musicwindow.style.width = "400px";
+    mzpgname.style["margin-right"] = "250px";
+    audiop.style.height = "350px";
+    audiop.style.width = "350px";
+
+});
+
+
+const nexbtn = document.getElementById("nextbtn");
+const perbtn = document.getElementById("previousbtn");
+
+nexbtn.addEventListener("click",() => {
+    if (songs.length === 0) return;
+    currentSong++;
+
+    if (currentSong >= songs.length) {
+        currentSong = 0;
+    }
+
+    audio.src = URL.createObjectURL(songs[currentSong]);
+    audio.play();
+    catlistens.src = "image/Cat listening GIF.gif";
+});
+
+perbtn.addEventListener("click", () => {
+    if (songs.length === 0) return;
+    currentSong--;
+
+    if (currentSong <0){
+        currentSong = songs.length - 1;
+    }
+
+    audio.src = URL.createObjectURL(songs[currentSong]);
+    audio.play();
+    catlistens.src = "image/Cat listening GIF.gif";    
+});
+
+audio.addEventListener("ended",() => {
+    catlistens.src = "image/cat side eye.gif";
+});
+
+// My project
+const project = document.querySelector(".my-project");
+const projectMenu = document.querySelector(".menu6");
+
+project.hidden = true;
+project.style.display = "none";
+
+projectMenu.addEventListener("click", () => {
+    makewindowcopies(project);
+});
